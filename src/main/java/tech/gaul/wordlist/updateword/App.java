@@ -3,7 +3,6 @@ package tech.gaul.wordlist.updateword;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
@@ -26,7 +25,7 @@ public class App implements RequestHandler<SQSEvent, Object> {
     @Override
     public Object handleRequest(SQSEvent event, Context context) {
 
-        Iterable<Word> words = event.getRecords().stream()
+        List<Word> words = event.getRecords().stream()
                 .map(SQSEvent.SQSMessage::getBody)
                 .map(str -> {
                     try {
