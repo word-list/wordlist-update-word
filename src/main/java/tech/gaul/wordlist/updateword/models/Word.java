@@ -1,0 +1,18 @@
+package tech.gaul.wordlist.updateword.models;
+
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+
+@Builder
+@Getter
+@Setter
+public class Word {
+    
+    private String word;
+    private String[] types;
+    private int offensiveness;
+    private int commonness;
+    private int sentiment;    
+
+}
