@@ -10,17 +10,14 @@ import com.amazonaws.services.lambda.runtime.events.SQSEvent;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import software.amazon.awssdk.enhanced.dynamodb.DynamoDbEnhancedClient;
-import software.amazon.awssdk.services.sqs.SqsClient;
 import tech.gaul.wordlist.updateword.models.UpdateWordMessage;
 import tech.gaul.wordlist.updateword.models.Word;
 
 public class App implements RequestHandler<SQSEvent, Object> {
 
-    ObjectMapper objectMapper = new ObjectMapper();
-    DynamoDbEnhancedClient dbClient = DependencyFactory.dynamoDbClient();
-    Optional<UpdateWordMessage> emptyRequest = Optional.empty();
-
-    SqsClient sqsClient = DependencyFactory.sqsClient();
+    private final ObjectMapper objectMapper = new ObjectMapper();
+    private final DynamoDbEnhancedClient dbClient = DependencyFactory.dynamoDbClient();        
+    private final Optional<UpdateWordMessage> emptyRequest = Optional.empty();
 
     @Override
     public Object handleRequest(SQSEvent event, Context context) {
