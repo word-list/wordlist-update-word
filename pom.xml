@@ -106,6 +106,7 @@
                     <createDependencyReducedPom>false</createDependencyReducedPom>
                     <finalName>${project.artifactId}-${project.version}</finalName>
                     <shadedArtifactAttached>false</shadedArtifactAttached>
+                    <createDependencyReducedPom>false</createDependencyReducedPom>
                     <filters>
                         <filter>
                             <artifact>*:*</artifact>
